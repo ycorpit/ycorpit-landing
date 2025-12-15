@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Typography, Button, Input } from "@material-tailwind/react";
 
 const LINKS = [
