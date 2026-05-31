@@ -1,96 +1,48 @@
-// @ts-nocheck
-import { Typography, Button, Input } from "@material-tailwind/react";
+import Link from "next/link";
 
-const LINKS = [
-  {
-    title: "Company",
-    items: ["About Us", "Careers", "Premium Tools", "Blog"],
-  },
-  {
-    title: "Pages",
-    items: ["Login", "Register", "Add List", "Contact"],
-  },
-  {
-    title: "Legal",
-    items: ["Terms", "Privacy", "Team", "About Us"],
-  },
-];
-
-const CURRENT_YEAR = new Date().getFullYear();
-
-export function Footer() {
+function LogoMark() {
   return (
-    <footer className="px-8 pt-24 pb-8">
-      <div className="container max-w-6xl flex flex-col mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 !w-full ">
-          <div className="flex col-span-2 items-center gap-10 mb-10 lg:mb-0 md:gap-36">
-            {LINKS.map(({ title, items }) => (
-              <ul key={title}>
-                <Typography variant="h6" color="blue-gray" className="mb-4">
-                  {title}
-                </Typography>
-                {items.map((link) => (
-                  <li key={link}>
-                    <Typography
-                      as="a"
-                      href="#"
-                      className="py-1 font-normal !text-gray-700 transition-colors hover:!text-gray-900"
-                    >
-                      {link}
-                    </Typography>
-                  </li>
-                ))}
-              </ul>
-            ))}
-          </div>
-          <div className="">
-            <Typography variant="h6" className="mb-3 text-left">
-              Subscribe
-            </Typography>
-            <Typography className="!text-gray-500 font-normal mb-4 text-base">
-              Get access to subscriber exclusive deals and be the first who gets
-              informed about fresh sales.
-            </Typography>
-            <Typography variant="small" className="font-medium mb-2 text-left">
-              Your Email
-            </Typography>
-            <div className="flex mb-3 flex-col lg:flex-row items-start gap-4">
-              <div className="w-full">
-                {/* @ts-ignore */}
-                <Input label="Email" color="gray" />
-                <Typography className="font-medium mt-3 !text-sm !text-gray-500 text-left">
-                  I agree the{" "}
-                  <a
-                    href="#"
-                    className="font-bold underline hover:text-gray-900 transition-colors"
-                  >
-                    Terms and Conditions{" "}
-                  </a>
-                </Typography>
-              </div>
-              <Button color="gray" className="w-full lg:w-fit" size="md">
-                button
-              </Button>
-            </div>
-          </div>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="logo-mark">
+      <rect x="1.5" y="1.5" width="37" height="37" rx="3" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      <text x="20" y="29" fontFamily="Fraunces, Georgia, serif" fontSize="24" fontStyle="italic" fontWeight="500" fill="#d4a93a" textAnchor="middle">Y</text>
+    </svg>
+  );
+}
+
+export default function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <div className="footer-col">
+          <Link href="/" className="logo">
+            <LogoMark />
+            Ycorpit
+          </Link>
+          <p style={{ marginTop: "1rem", fontSize: "0.85rem", color: "var(--muted)", maxWidth: "26ch" }}>
+            Engineering-led operations consulting. Global remote.
+          </p>
         </div>
-        <Typography
-          color="blue-gray"
-          className="md:text-center mt-16 font-normal !text-gray-700"
-        >
-          &copy; {CURRENT_YEAR} Made with{" "}
-          <a href="https://www.material-tailwind.com" target="_blank">
-            Material Tailwind
-          </a>{" "}
-          by{" "}
-          <a href="https://www.creative-tim.com" target="_blank">
-            Creative Tim
-          </a>
-          .
-        </Typography>
+        <div className="footer-col">
+          <h4>EXPLORE</h4>
+          <ul>
+            <li><Link href="/about">About us</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/why">Why Ycorpit</Link></li>
+            <li><Link href="/sample">Sample audit</Link></li>
+          </ul>
+        </div>
+        <div className="footer-col">
+          <h4>GET IN TOUCH</h4>
+          <ul>
+            <li><Link href="/audit">Start an audit</Link></li>
+            <li><a href="mailto:contacts@ycorpit.com">contacts@ycorpit.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <span>© 2025 Ycorpit LLC</span>
+        <span>Global remote operations</span>
       </div>
     </footer>
   );
 }
-
-export default Footer;
