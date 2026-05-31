@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Audit Report — Ycorpit</title>
+  <meta name="description" content="A real audit report, anonymized. See exactly what we deliver — findings, ROI projections, process maps, implementation roadmap.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .report-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+    }
+
+    .report-banner {
+      background: var(--surface);
+      border: 1px solid var(--border-hover);
+      border-radius: 2px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 3rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .report-banner strong { color: var(--text); font-weight: 500; }
+
+    .report-banner .print-btn {
+      margin-left: auto;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid var(--border-hover);
+      color: var(--text);
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 2px;
+      font-family: 'Geist', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .report-banner .print-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .report-header {
+      padding-bottom: 3rem;
+      border-bottom: 2px solid var(--border-hover);
+      margin-bottom: 4rem;
+    }
+
+    .report-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .report-meta-item {}
+    .report-meta-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+    .report-meta-value {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .report-section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .report-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .report-section-num {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .report-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      margin-bottom: 2rem;
+      line-height: 1.15;
+    }
+
+    .report-section h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 1rem;
+      color: var(--text);
+    }
+
+    .report-section p {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      max-width: 68ch;
+    }
+
+    .report-section p.muted { color: var(--muted); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .kpi-card {
+      padding: 1.5rem 1.25rem;
+      border: 1px solid var(--border-hover);
+      border-radius: 2px;
+      background: var(--surface);
+    }
+
+    .kpi-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-value {
+      font-family: 'Fraunces', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .finding {
+      margin: 2rem 0;
+      padding: 1.75rem;
+      border-left: 2px solid var(--accent);
+      background: var(--surface);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .finding-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .finding-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .severity-badge {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    .severity-high {
+      background: rgba(184, 92, 92, 0.15);
+      color: #d97a7a;
+      border: 1px solid rgba(184, 92, 92, 0.3);
+    }
+
+    .severity-medium {
+      background: rgba(212, 169, 58, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(212, 169, 58, 0.3);
+    }
+
+    .severity-low {
+      background: rgba(107, 163, 104, 0.15);
+      color: #8bc488;
+      border: 1px solid rgba(107, 163, 104, 0.3);
+    }
+
+    .finding p {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+      max-width: none;
+    }
+
+    .finding-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .finding-meta-item {
+      font-size: 0.85rem;
+    }
+
+    .finding-meta-item .label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-right: 0.5rem;
+    }
+
+    .finding-meta-item .value {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* Diagram */
+    .diagram-wrap {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border-hover);
+      border-radius: 2px;
+    }
+
+    .diagram-caption {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Recommendations table */
+    .rec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .rec-table thead {
+      border-bottom: 2px solid var(--border-hover);
+    }
+
+    .rec-table th {
+      text-align: left;
+      padding: 1rem 1rem 1rem 0;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      font-weight: 400;
+    }
+
+    .rec-table td {
+      padding: 1.25rem 1rem 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .rec-table td.priority {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .rec-table td.effort, .rec-table td.savings {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .rec-table td.savings { color: var(--success); }
+
+    /* Roadmap */
+    .roadmap {
+      margin: 2rem 0;
+    }
+
+    .roadmap-phase {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .roadmap-phase:first-child { border-top: none; }
+
+    .roadmap-phase-num {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .roadmap-phase h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.015em;
+    }
+
+    .roadmap-phase p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: none;
+    }
+
+    /* CTA after report */
+    .report-cta {
+      margin-top: 5rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border-hover);
+      border-radius: 2px;
+      background: var(--surface);
+    }
+
+    .report-cta h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .report-cta p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 48ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .report-wrap { padding: 2rem 1.25rem 4rem; }
+      .report-meta-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .roadmap-phase { grid-template-columns: 1fr; gap: 0.5rem; }
+      .rec-table { font-size: 0.85rem; }
+      .rec-table td, .rec-table th { padding: 0.75rem 0.5rem; }
+      .report-section h2 { font-size: 1.5rem; }
+    }
+
+    /* Print */
+    @media print {
+      nav.site-nav, footer.site-footer, .report-banner, .report-cta { display: none !important; }
+      body { background: white; color: black; }
+      .report-wrap { padding: 0; max-width: 100%; }
+      .finding, .kpi-card, .diagram-wrap, .report-meta-grid { background: white; border-color: #ddd; }
+      .report-section h2, .report-section h3, .finding-title, .kpi-value { color: black; }
+      .report-section p, .finding p, .roadmap-phase p { color: #333; }
+      .severity-high, .severity-medium, .severity-low { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
+        <rect x="1.5" y="1.5" width="37" height="37" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <text x="20" y="29" font-family="Fraunces, Georgia, serif" font-size="24" font-style="italic" font-weight="500" fill="#d4a93a" text-anchor="middle">Y</text>
+      </svg>
+      Ycorpit
+    </a>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="why.html" class="nav-link">Why us</a>
+      <a href="sample.html" class="nav-link active">Sample audit</a>
+      <a href="audit.html" class="nav-cta">Start audit →</a>
+    </div>
+  </nav>
+
+  <div class="report-wrap">
+
+    <!-- BANNER -->
+    <div class="report-banner">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <span><strong>Sample report.</strong> Anonymized from a real engagement. Names, numbers, and identifying details modified.</span>
+      <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <!-- HEADER -->
+    <div class="report-header">
+      <p class="report-section-num" style="margin-bottom: 1rem;">YCORPIT · OPERATIONS AUDIT REPORT</p>
+      <h1 style="font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 300; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1rem;">
+        Operational efficiency review for a <em class="accent-italic">mid-sized accounting firm.</em>
+      </h1>
+      <p style="color: var(--muted); font-size: 1rem; max-width: 60ch; line-height: 1.7;">
+        Conducted over 3 weeks. Findings cover client onboarding, recurring deliverables, internal communication, and tax-season operations.
+      </p>
+
+      <div class="report-meta-grid">
+        <div class="report-meta-item">
+          <div class="report-meta-label">CLIENT</div>
+          <div class="report-meta-value">[Redacted]</div>
+        </div>
+        <div class="report-meta-item">
+          <div class="report-meta-label">INDUSTRY</div>
+          <div class="report-meta-value">Professional services</div>
+        </div>
+        <div class="report-meta-item">
+          <div class="report-meta-label">TEAM SIZE</div>
+          <div class="report-meta-value">14 staff</div>
+        </div>
+        <div class="report-meta-item">
+          <div class="report-meta-label">DURATION</div>
+          <div class="report-meta-value">3 weeks</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="report-section">
+      <p class="report-section-num">01 — EXECUTIVE SUMMARY</p>
+      <h2>The firm runs on heroics, not systems.</h2>
+
+      <p>The client is a 14-person accounting and bookkeeping firm serving approximately 180 small-business clients across two states. Annual revenue is in the low seven figures. The firm has grown steadily for six years — and the operational backbone that worked at 5 staff and 40 clients is now visibly failing at current scale.</p>
+
+      <p>Partners and senior staff are absorbing operational debt as a workaround: working 55–65 hours per week, manually moving data between systems, and chasing client documents. This is unsustainable, and it is suppressing the firm's capacity for growth.</p>
+
+      <p>We identified <strong style="color: var(--text);">six material findings</strong>, four of which are addressable inside a 60–90 day implementation window. Estimated annual recovery: <strong style="color: var(--success);">$118,000–$172,000</strong> in labor cost, plus an estimated 22% reduction in tax-season overtime.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">FINDINGS</div>
+          <div class="kpi-value">6</div>
+          <div class="kpi-sub">4 high / 1 med / 1 low</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">HOURS WASTED</div>
+          <div class="kpi-value">~38/wk</div>
+          <div class="kpi-sub">across the firm</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">PROJECTED SAVINGS</div>
+          <div class="kpi-value">$145k</div>
+          <div class="kpi-sub">midpoint, annualized</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">PAYBACK</div>
+          <div class="kpi-value">~5 mo</div>
+          <div class="kpi-sub">at midpoint estimate</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT STATE -->
+    <section class="report-section">
+      <p class="report-section-num">02 — CURRENT STATE</p>
+      <h2>How work flows today.</h2>
+
+      <p>The firm operates with six core tools: QuickBooks Online (accounting), a CRM that was customized three years ago by a now-departed contractor, Google Workspace (email, drive, docs), DocuSign (e-signatures), a payroll platform, and an internal spreadsheet system used by senior staff to track client status during deliverables.</p>
+
+      <p class="muted">Below is a simplified map of the client onboarding flow as it exists today. The pattern repeats — with variations — for monthly close, quarterly filings, and annual tax preparation.</p>
+
+      <!-- DIAGRAM -->
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#707070"/>
+            </marker>
+            <marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4a93a"/>
+            </marker>
+          </defs>
+
+          <!-- Boxes -->
+          <g font-family="Geist, sans-serif" font-size="11" fill="#ededeb">
+            <!-- Row 1 -->
+            <rect x="20" y="20" width="130" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="85" y="42" text-anchor="middle">Client signs</text>
+            <text x="85" y="56" text-anchor="middle" fill="#707070" font-size="10">engagement letter</text>
+
+            <rect x="190" y="20" width="130" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="255" y="42" text-anchor="middle">Email sent</text>
+            <text x="255" y="56" text-anchor="middle" fill="#707070" font-size="10">"please send docs"</text>
+
+            <rect x="360" y="20" width="130" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="425" y="42" text-anchor="middle">Client uploads</text>
+            <text x="425" y="56" text-anchor="middle" fill="#707070" font-size="10">to shared drive</text>
+
+            <rect x="530" y="20" width="150" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="605" y="42" text-anchor="middle">Senior staff reviews</text>
+            <text x="605" y="56" text-anchor="middle" fill="#707070" font-size="10">notes gaps in email</text>
+
+            <!-- Arrows -->
+            <line x1="150" y1="45" x2="190" y2="45" stroke="#707070" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="320" y1="45" x2="360" y2="45" stroke="#d4a93a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-warn)"/>
+            <line x1="490" y1="45" x2="530" y2="45" stroke="#707070" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <!-- Drop down -->
+            <line x1="605" y1="70" x2="605" y2="100" stroke="#d4a93a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-warn)"/>
+
+            <!-- Row 2 -->
+            <rect x="530" y="105" width="150" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="605" y="127" text-anchor="middle">Email back &amp; forth</text>
+            <text x="605" y="141" text-anchor="middle" fill="#707070" font-size="10">missing docs (×3–7)</text>
+
+            <line x1="530" y1="130" x2="490" y2="130" stroke="#707070" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <rect x="360" y="105" width="130" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="425" y="127" text-anchor="middle">Data entered</text>
+            <text x="425" y="141" text-anchor="middle" fill="#707070" font-size="10">into QuickBooks</text>
+
+            <line x1="360" y1="130" x2="320" y2="130" stroke="#d4a93a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-warn)"/>
+
+            <rect x="190" y="105" width="130" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="255" y="127" text-anchor="middle">CRM updated</text>
+            <text x="255" y="141" text-anchor="middle" fill="#707070" font-size="10">(manually, often late)</text>
+
+            <line x1="190" y1="130" x2="150" y2="130" stroke="#d4a93a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-warn)"/>
+
+            <rect x="20" y="105" width="130" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="85" y="127" text-anchor="middle">Status tracked</text>
+            <text x="85" y="141" text-anchor="middle" fill="#707070" font-size="10">in side spreadsheet</text>
+
+            <line x1="85" y1="155" x2="85" y2="185" stroke="#707070" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <!-- Final -->
+            <rect x="20" y="190" width="280" height="50" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1"/>
+            <text x="160" y="212" text-anchor="middle">Onboarding complete</text>
+            <text x="160" y="226" text-anchor="middle" fill="#707070" font-size="10">elapsed time: 9–14 days · target: 2–3 days</text>
+          </g>
+
+          <!-- Legend -->
+          <g font-family="Geist Mono, monospace" font-size="9" fill="#707070">
+            <line x1="430" y1="210" x2="455" y2="210" stroke="#d4a93a" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <text x="465" y="214">Manual handoff (waste)</text>
+
+            <line x1="430" y1="226" x2="455" y2="226" stroke="#707070" stroke-width="1.5"/>
+            <text x="465" y="230">Automated / direct</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">FIG. 1 — CURRENT CLIENT ONBOARDING FLOW · 6 OF 8 STEPS REQUIRE MANUAL DATA TRANSFER</p>
+      </div>
+
+      <p>Of the eight discrete steps in onboarding, six involve manual data entry or unstructured back-and-forth. The firm's CRM contains one record per client; QuickBooks contains another; the status spreadsheet contains a third. There is no system of record — each system holds a partial, lagging view.</p>
+
+      <p>Senior staff cope by holding the canonical state in their heads. When a senior is sick or on vacation, junior staff have no way to determine where a client stands without interrupting partners.</p>
+    </section>
+
+    <!-- FINDINGS -->
+    <section class="report-section">
+      <p class="report-section-num">03 — FINDINGS</p>
+      <h2>Six issues. Four worth acting on now.</h2>
+
+      <p class="muted">Each finding includes a severity rating, the team time it consumes, and the estimated annual cost in labor hours.</p>
+
+      <div class="finding">
+        <div class="finding-header">
+          <div class="finding-title">F-01 · Client onboarding takes 5× longer than industry standard</div>
+          <span class="severity-badge severity-high">HIGH</span>
+        </div>
+        <p>Onboarding currently takes 9–14 elapsed days; industry benchmark for a firm of this size is 2–3 days. Root cause: no structured document collection, no checklist enforcement, and no automation between client submission and CRM/QuickBooks updates. Partners are pulled in for status updates that should be visible in the system.</p>
+        <div class="finding-meta">
+          <div class="finding-meta-item"><span class="label">TIME/WEEK</span><span class="value">~9 hrs across senior staff</span></div>
+          <div class="finding-meta-item"><span class="label">EST. ANNUAL COST</span><span class="value">$38,000–$52,000</span></div>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-header">
+          <div class="finding-title">F-02 · No system of record for client status</div>
+          <span class="severity-badge severity-high">HIGH</span>
+        </div>
+        <p>Three systems (CRM, QuickBooks, side spreadsheet) each hold partial, out-of-sync client state. Junior staff cannot answer client status questions without escalating to a partner. The firm lacks any cross-client dashboard for partners to triage workload.</p>
+        <div class="finding-meta">
+          <div class="finding-meta-item"><span class="label">TIME/WEEK</span><span class="value">~8 hrs in partner interruptions</span></div>
+          <div class="finding-meta-item"><span class="label">EST. ANNUAL COST</span><span class="value">$32,000–$45,000</span></div>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-header">
+          <div class="finding-title">F-03 · Senior staff doing data entry work</div>
+          <span class="severity-badge severity-high">HIGH</span>
+        </div>
+        <p>Approximately 40% of senior staff time during onboarding is spent on tasks (typing, file routing, status updates) that could be handled by automation or by junior staff with proper tooling. Senior labor rate is 2.8× junior rate; the implicit cost is significant.</p>
+        <div class="finding-meta">
+          <div class="finding-meta-item"><span class="label">TIME/WEEK</span><span class="value">~12 hrs senior-level data entry</span></div>
+          <div class="finding-meta-item"><span class="label">EST. ANNUAL COST</span><span class="value">$28,000–$42,000</span></div>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-header">
+          <div class="finding-title">F-04 · Tax-season operations are heroic, not systematic</div>
+          <span class="severity-badge severity-high">HIGH</span>
+        </div>
+        <p>During tax season, the entire firm shifts into 55–65 hour weeks. The same process gaps that cost 38 hours per week in normal operation cost 90+ hours per week during peak. No queueing system, no triage process, no surge capacity playbook. Burnout-related quality issues observed in two of the last three tax seasons.</p>
+        <div class="finding-meta">
+          <div class="finding-meta-item"><span class="label">TIME/WEEK</span><span class="value">+50 hrs/wk peak (12 wks/yr)</span></div>
+          <div class="finding-meta-item"><span class="label">EST. ANNUAL COST</span><span class="value">$20,000–$33,000 in overtime + retention risk</span></div>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-header">
+          <div class="finding-title">F-05 · Knowledge lives in one partner's email archive</div>
+          <span class="severity-badge severity-medium">MEDIUM</span>
+        </div>
+        <p>Process documentation is minimal. Critical knowledge ("how we handle Schedule C for this client type," "which forms apply to this state setup," etc.) resides in senior staff inboxes and memory. Existing SOPs are 2+ years out of date.</p>
+        <div class="finding-meta">
+          <div class="finding-meta-item"><span class="label">RISK</span><span class="value">Single-point-of-failure on key personnel</span></div>
+          <div class="finding-meta-item"><span class="label">IMPACT</span><span class="value">Slows onboarding of new junior staff; raises malpractice exposure</span></div>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-header">
+          <div class="finding-title">F-06 · Client portal absent</div>
+          <span class="severity-badge severity-low">LOW</span>
+        </div>
+        <p>Clients submit documents over email and shared drives. No central portal exists for clients to upload securely, check status, or download deliverables. Modern competitors offer this; clients have asked for it. Low immediate ROI but contributes to retention and competitive positioning.</p>
+        <div class="finding-meta">
+          <div class="finding-meta-item"><span class="label">IMPACT</span><span class="value">Retention, competitive positioning</span></div>
+          <div class="finding-meta-item"><span class="label">EST. PAYBACK</span><span class="value">12–18 months</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOMMENDATIONS -->
+    <section class="report-section">
+      <p class="report-section-num">04 — RECOMMENDATIONS</p>
+      <h2>What to do, in what order.</h2>
+
+      <p class="muted">Recommendations are ordered by impact-to-effort ratio. We strongly recommend implementing items P1–P3 before tax season; P4–P6 can follow.</p>
+
+      <table class="rec-table">
+        <thead>
+          <tr>
+            <th style="width: 70px;">PRIORITY</th>
+            <th>RECOMMENDATION</th>
+            <th style="width: 110px;">EFFORT</th>
+            <th style="width: 130px;">ANNUAL SAVINGS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="priority">P1</td>
+            <td>
+              <strong>Build a structured intake automation:</strong> client signs engagement → automated checklist email → tracked submission portal → automatic CRM and QuickBooks record creation. Addresses F-01, F-02, F-03.
+            </td>
+            <td class="effort">3–4 weeks</td>
+            <td class="savings">$58k–$84k</td>
+          </tr>
+          <tr>
+            <td class="priority">P2</td>
+            <td>
+              <strong>Implement a unified client status dashboard:</strong> single source of truth pulling from CRM, QuickBooks, and document portal. Partners triage from one view; junior staff self-serve status questions.
+            </td>
+            <td class="effort">2–3 weeks</td>
+            <td class="savings">$22k–$32k</td>
+          </tr>
+          <tr>
+            <td class="priority">P3</td>
+            <td>
+              <strong>Tax-season surge playbook + workflow queueing:</strong> documented process, queue tooling, escalation tree, and capacity-monitoring dashboard. Reduces overtime via better load distribution.
+            </td>
+            <td class="effort">2 weeks + on-call</td>
+            <td class="savings">$15k–$25k</td>
+          </tr>
+          <tr>
+            <td class="priority">P4</td>
+            <td>
+              <strong>Document core SOPs:</strong> top 20 recurring workflows captured in Notion (or platform of choice). Addresses F-05. Enables faster junior onboarding.
+            </td>
+            <td class="effort">3 weeks</td>
+            <td class="savings">$8k–$14k</td>
+          </tr>
+          <tr>
+            <td class="priority">P5</td>
+            <td>
+              <strong>AI document-extraction agent for client docs:</strong> upload W-2/1099/bank statements; AI extracts and pre-populates QuickBooks entries with human review. Specifically targets F-03 senior data entry.
+            </td>
+            <td class="effort">4–6 weeks</td>
+            <td class="savings">$12k–$20k</td>
+          </tr>
+          <tr>
+            <td class="priority">P6</td>
+            <td>
+              <strong>Client portal (deferred):</strong> client self-service for uploads, status, and deliverable download. Recommended once P1–P5 are live and stable. Addresses F-06.
+            </td>
+            <td class="effort">4–6 weeks</td>
+            <td class="savings">Indirect — retention</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 2rem;">
+        <strong style="color: var(--text);">Total projected annual savings (P1–P5):</strong> <span style="color: var(--success); font-family: 'Geist Mono', monospace;">$115,000–$175,000</span>. Implementation cost estimate is provided separately. Payback at midpoint estimate is approximately 5 months.
+      </p>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="report-section">
+      <p class="report-section-num">05 — IMPLEMENTATION ROADMAP</p>
+      <h2>A realistic path. Twelve weeks to most of the savings.</h2>
+
+      <div class="roadmap">
+        <div class="roadmap-phase">
+          <div class="roadmap-phase-num">WEEKS 1–4</div>
+          <div>
+            <h4>Phase 1 — Intake automation (P1)</h4>
+            <p>Highest-impact item first. Builds the structured intake automation, sets up tracked document submission, automates CRM + QuickBooks record creation. By end of phase 1, onboarding elapsed time should drop from 9–14 days to 3–5 days.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase-num">WEEKS 4–7</div>
+          <div>
+            <h4>Phase 2 — Status dashboard (P2)</h4>
+            <p>Builds the unified client status dashboard. By end of phase 2, partners should reduce status-question interruptions by an estimated 70%. Junior staff begin self-serving status queries.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase-num">WEEKS 7–9</div>
+          <div>
+            <h4>Phase 3 — Tax-season playbook (P3)</h4>
+            <p>Targeted at completing before tax season. Documents surge process, builds workflow queue, sets up capacity dashboard. Outcome measured the following tax season.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase-num">WEEKS 9–12</div>
+          <div>
+            <h4>Phase 4 — Documentation push (P4)</h4>
+            <p>SOPs captured. Critical knowledge moved out of inboxes and into searchable documentation. Reduces single-point-of-failure risk identified in F-05.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase-num">MONTHS 4–6</div>
+          <div>
+            <h4>Phase 5 — AI extraction agent (P5)</h4>
+            <p>Optional but high-leverage. AI-assisted document data extraction with human review. Begins after foundational systems are stable. Frees senior staff from remaining data-entry tasks.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase-num">MONTHS 6+</div>
+          <div>
+            <h4>Phase 6 — Client portal (P6, deferred)</h4>
+            <p>Once internal systems are reliable, surface client-facing portal. Lower priority because savings are indirect (retention), but important for long-term positioning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="report-section">
+      <p class="report-section-num">06 — CLOSING NOTES</p>
+      <h2>What we'd flag if we were the owner.</h2>
+
+      <p>The firm has built a real business with real revenue. The operational backbone has not scaled with it — that's normal at this size, and it's not a criticism. It's the most common pattern we see in professional services.</p>
+
+      <p>The good news: the cost of fixing this is significantly lower than the cost of continuing to absorb it. The team is capable; the partners are sharp; the clients are loyal. The fix is mechanical, not cultural.</p>
+
+      <p>We'd specifically encourage prioritizing <strong style="color: var(--text);">P1 and P2 before the next tax season</strong>. These two together eliminate the majority of the operational pain and create the foundation for everything else. Skipping them or deferring them is the single biggest risk to growth and to staff retention.</p>
+
+      <p class="muted" style="margin-top: 3rem; font-style: italic;">
+        — Ycorpit team
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <div class="report-cta">
+      <h3>Want one of these for your business?</h3>
+      <p>Start with the audit form. You'll get an instant rough estimate. Our team sends a free first-look analysis within 48 hours.</p>
+      <a href="audit.html" class="btn btn-primary">Start a free audit →</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
+            <rect x="1.5" y="1.5" width="37" height="37" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <text x="20" y="29" font-family="Fraunces, Georgia, serif" font-size="24" font-style="italic" font-weight="500" fill="#d4a93a" text-anchor="middle">Y</text>
+          </svg>
+          Ycorpit
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted); max-width: 26ch;">Engineering-led operations consulting. Global remote.</p>
+      </div>
+      <div class="footer-col">
+        <h4>EXPLORE</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="why.html">Why Ycorpit</a></li>
+          <li><a href="sample.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>GET IN TOUCH</h4>
+        <ul>
+          <li><a href="audit.html">Start an audit</a></li>
+          <li><a href="mailto:contacts@ycorpit.com">contacts@ycorpit.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ycorpit LLC</span>
+      <span>Global remote operations</span>
+    </div>
+  </footer>
+
+</body>
+</html>

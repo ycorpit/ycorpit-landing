@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Ycorpit</title>
+  <meta name="description" content="Engineers from large tech companies, building operations consulting the way we'd want it for ourselves.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
+        <rect x="1.5" y="1.5" width="37" height="37" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <text x="20" y="29" font-family="Fraunces, Georgia, serif" font-size="24" font-style="italic" font-weight="500" fill="#d4a93a" text-anchor="middle">Y</text>
+      </svg>
+      Ycorpit
+    </a>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="why.html" class="nav-link">Why us</a>
+      <a href="sample.html" class="nav-link">Sample audit</a>
+      <a href="audit.html" class="nav-cta">Start audit →</a>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow fade-up">About Ycorpit</p>
+      <h1 class="fade-up d1">Engineers who got tired of watching SMBs <em class="accent-italic">drown in busywork.</em></h1>
+      <p class="lede fade-up d2">
+        We've spent over a decade inside large tech companies — building software, running quality, owning infrastructure, securing systems. We saw how broken processes are normalized at scale, hidden by headcount and budget. We left to fix it where it actually matters: in the small and mid-sized businesses where one improvement changes the whole company.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label"><span class="num">01</span>WHO WE ARE</p>
+        <h2 class="section-title">Two engineers <em class="accent-italic">plus a network.</em></h2>
+      </div>
+      <div class="feature-grid">
+        <div></div>
+        <div style="max-width: 60ch;">
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem;">
+            Ycorpit is two founders with deep backgrounds across <strong style="color: var(--text);">software development, quality engineering, infrastructure, and security</strong> — most of it at established tech companies where systems run at scale.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem;">
+            When a project lands, we bring in vetted partners from our network — specialists we've worked with for years. No random freelancers, no agency middlemen, no surprise handoffs.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75;">
+            Everyone you talk to is someone doing actual work on your project. That's the whole structure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section style="background: var(--surface);">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label"><span class="num">02</span>BACKGROUND</p>
+        <h2 class="section-title">Deep expertise, <em class="accent-italic">used pragmatically.</em></h2>
+      </div>
+      <div class="feature-grid">
+        <div></div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <h3>Software development</h3>
+            <p>Production systems, distributed architectures, CI/CD pipelines, and the kind of code that runs every day without anyone touching it.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Quality engineering</h3>
+            <p>SDET-level test automation, performance engineering, observability. We know how to measure systems and the people who run them.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Cloud infrastructure</h3>
+            <p>AWS-certified (Solutions Architect Associate), with hands-on experience across compute, networking, security, and cost optimization at scale.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Security</h3>
+            <p>Identity & access management, secure configuration, threat modeling. Your data is treated the way our former employers required us to treat theirs.</p>
+          </div>
+          <div class="feature-item">
+            <h3>AI & automation</h3>
+            <p>Production-grade AI workflows. We've built and shipped real systems — not slideware. We know what AI actually does well and where it fails.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Process design</h3>
+            <p>Process mapping, root-cause analysis, bottleneck identification. The unglamorous work that makes a business actually scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WE DO THIS -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label"><span class="num">03</span>WHY WE DO THIS</p>
+        <h2 class="section-title">SMBs deserve the systems <em class="accent-italic">big companies take for granted.</em></h2>
+      </div>
+      <div class="feature-grid">
+        <div></div>
+        <div style="max-width: 60ch;">
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem;">
+            Inside a 50,000-person company, fixing a broken process is a 6-month political project. Layers of directors. Approval chains. Vendor RFPs. By the time anything moves, the problem has mutated.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem;">
+            Inside a 30-person company, the same fix takes a week — if the right person is available. Usually they aren't. So the broken process becomes "how we do things," and everyone learns to live with it.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem;">
+            That's where we come in. We bring the operational discipline of large companies, applied at small-company speed. No bureaucracy, no PowerPoint quarter, no consulting theater.
+          </p>
+          <p style="font-size: 1.15rem; color: var(--text); line-height: 1.6; margin-top: 2.5rem; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;">
+            "If we can't find work worth doing, we give your money back. We're not here to bill hours — we're here to fix things."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM PLACEHOLDER -->
+  <section style="background: var(--surface);">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label"><span class="num">04</span>THE TEAM</p>
+        <h2 class="section-title">Names and faces — <em class="accent-italic">soon.</em></h2>
+      </div>
+      <div class="feature-grid">
+        <div></div>
+        <div style="max-width: 56ch;">
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem;">
+            We're keeping team bios off the public site for now — not because we have anything to hide, but because we want to introduce ourselves properly, in person or on a call, before the internet does it for us.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem;">
+            If you're considering working with us, the first call is with one of the founders. You'll know exactly who we are, where we worked, what we've built, and why we think we can help.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;">
+            <div style="border: 1px dashed var(--border-hover); padding: 2rem 1.5rem; border-radius: 2px;">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--surface-2); margin-bottom: 1rem;"></div>
+              <p class="mono" style="font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em;">FOUNDER · DEV · QA</p>
+              <p style="font-style: italic; color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Introduced on the call.</p>
+            </div>
+            <div style="border: 1px dashed var(--border-hover); padding: 2rem 1.5rem; border-radius: 2px;">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--surface-2); margin-bottom: 1rem;"></div>
+              <p class="mono" style="font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em;">FOUNDER · OPERATIONS</p>
+              <p style="font-style: italic; color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Introduced on the call.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center" style="padding: 9rem 0;">
+    <div class="container">
+      <h2 class="section-title" style="max-width: 22ch; margin: 0 auto 1.5rem;">Want to see what we'd <em class="accent-italic">find in your business?</em></h2>
+      <p style="color: var(--muted); font-size: 1.05rem; max-width: 44ch; margin: 0 auto 3rem;">
+        Fill out the audit form. Free first-look within 48 hours.
+      </p>
+      <a href="audit.html" class="btn btn-primary">Start a free audit →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
+            <rect x="1.5" y="1.5" width="37" height="37" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <text x="20" y="29" font-family="Fraunces, Georgia, serif" font-size="24" font-style="italic" font-weight="500" fill="#d4a93a" text-anchor="middle">Y</text>
+          </svg>
+          Ycorpit
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted); max-width: 26ch;">Engineering-led operations consulting. Global remote.</p>
+      </div>
+      <div class="footer-col">
+        <h4>EXPLORE</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="why.html">Why Ycorpit</a></li>
+          <li><a href="sample.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>GET IN TOUCH</h4>
+        <ul>
+          <li><a href="audit.html">Start an audit</a></li>
+          <li><a href="mailto:contacts@ycorpit.com">contacts@ycorpit.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ycorpit LLC</span>
+      <span>Global remote operations</span>
+    </div>
+  </footer>
+
+</body>
+</html>
