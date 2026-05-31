@@ -86,9 +86,9 @@ export default function Audit() {
     const est = calculateEstimate(data);
     setView("loading");
 
-    const states = ["Reviewing your inputs.", "Mapping the work.", "Estimating scope."];
+    const states = ["Reviewing your inputs.", "Mapping the work.", "Estimating scope.", "Almost ready."];
     let i = 0;
-    const iv = setInterval(() => { i = (i + 1) % states.length; setLoadingText(states[i]); }, 900);
+    const iv = setInterval(() => { i = (i + 1) % states.length; setLoadingText(states[i]); }, 1100);
 
     const payload = {
       name: fd.get("name") as string,
@@ -112,7 +112,7 @@ export default function Audit() {
       clearInterval(iv);
       setEstimate(est);
       setView("result");
-    }, 2800);
+    }, 4500);
   }
 
   return (
@@ -128,7 +128,7 @@ export default function Audit() {
               Four short sections. You&apos;ll get a rough estimate immediately, and our team will reply within 24 hours with a detailed plan.
             </p>
 
-            <form ref={formRef} action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" noValidate onSubmit={handleSubmit}>
+            <form ref={formRef} action="https://formspree.io/f/xjgzdnqb" method="POST" noValidate onSubmit={handleSubmit}>
 
               {/* 01 CONTACT */}
               <div className="form-group">
@@ -266,9 +266,12 @@ export default function Audit() {
               </ul>
             </div>
             <div className="estimate-note">{estimate.note}</div>
+            <div className="estimate-note" style={{ marginTop: "1.5rem" }}>
+              This is a preliminary estimate based on what you&apos;ve shared. We&apos;ll review your audit in detail and send a precise proposal within 24 hours. From there, we&apos;ll schedule a call to walk through scope and confirm exact deliverables — before any work begins.
+            </div>
             <div className="next-steps">
               <p>Your details are with our team.</p>
-              <span>We&apos;ll send a detailed plan within 24 hours.</span>
+              <span>Expect a detailed proposal within 24 hours.</span>
             </div>
           </div>
         )}

@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1",
     "@heroicons/react": "2.0.18",
     "@material-tailwind/react": "2.1.2",
     "@types/nodemailer": "^8.0.0",
