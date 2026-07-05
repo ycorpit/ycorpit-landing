@@ -35,6 +35,8 @@ export default function Footer() {
           <h4>GET IN TOUCH</h4>
           <ul>
             <li><Link href="/audit">Start an audit</Link></li>
+            <li><Link href="/contact">Send a message</Link></li>
+            <li><a href="https://cal.com/ycorpit-contacts" target="_blank" rel="noopener noreferrer">Book a call</a></li>
             <li><a href="mailto:contacts@ycorpit.com">contacts@ycorpit.com</a></li>
           </ul>
         </div>
