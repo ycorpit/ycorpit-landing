@@ -2,151 +2,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Services — Ycorpit",
-  description: "Operations audits, turnkey builds, AI agent setup, and ongoing operations. Transparent pricing, fixed-price projects, month-to-month retainers.",
+  title: "Services & pricing — YCorpIT",
+  description: "Spend Audit, AI Chatbot Quality Check, and Workflow Automation — plus FinOps audits and custom software by request. What's included and what it costs.",
 };
 
-const SERVICES = [
+const FAQS = [
   {
-    id: "onboarding",
-    tag: "PREREQUISITE",
-    title: "Onboarding",
-    price: "from $1,500",
-    priceNote: "One-time. Non-refundable.",
-    desc: "Before any paid work begins, we onboard you formally. NDA signed, access provisioned, stakeholders interviewed, kickoff scheduled. This is the bridge from free conversation to billable work — and it's where we eliminate surprises on both sides.",
-    includesLabel: "WHAT'S INCLUDED",
-    includes: [
-      "Mutual NDA, signed digitally",
-      "Kickoff call with all key stakeholders",
-      "Tool, system, and document access setup",
-      "Operational inventory (what you have, what you use)",
-      "Scope confirmation for the engagement that follows",
-    ],
-    terms: [
-      { dt: "FEE", dd: "Non-refundable, paid before work begins." },
-      { dt: "TIMING", dd: "Completed in 5–7 business days." },
-      { dt: "OUTCOME", dd: "You receive a signed engagement letter for the next phase." },
-    ],
+    q: "Can I combine the three packages?",
+    a: ["Yes — each package is priced to stack. If you've already had a Spend Audit, adding a Chatbot Check or Workflow Automation comes at a discount, and bot monitoring drops from $900 to $300 per 3-month block when bundled with Workflow Automation. We'll quote the exact bundle price on your call."],
   },
   {
-    id: "audit",
-    tag: "CORE SERVICE",
-    title: "Operations Audit",
-    price: "from $5,000",
-    priceNote: "Refundable if no 2× ROI projection.",
-    desc: "The deep work. We map your operations end-to-end, interview your team, walk through your tools, and produce a prioritized findings report with measurable ROI projections. You can act on it yourself, hand it back to us for execution, or take it to another team — your call.",
-    includesLabel: "WHAT'S INCLUDED",
-    includes: [
-      "Stakeholder interviews (founders, ops leads, frontline staff)",
-      "Current-state process mapping",
-      "Bottleneck, waste, and risk identification",
-      "Prioritized recommendations matrix (impact × effort)",
-      "ROI projection per recommendation",
-      "Quick-win list — changes you can make this week",
-      "Final audit report (delivered as PDF and live document)",
-      "Walkthrough call with full Q&A",
-    ],
-    terms: [
-      { dt: "TIMING", dd: "2–4 weeks depending on company size and scope." },
-      { dt: "GUARANTEE", dd: "If our recommendations don't show projected savings of at least 2× your audit fee, we refund the audit fee in full." },
-      { dt: "OWNERSHIP", dd: "The report and all artifacts are yours to keep regardless of next steps." },
-    ],
+    q: "What if the Spend Audit doesn't find any savings?",
+    a: ["Then you pay only the $500 onboarding fee and keep the full report. We don't charge the 20% success fee unless we actually find and implement savings for you."],
   },
   {
-    id: "build",
-    tag: "EXECUTION",
-    title: "Turnkey projects",
-    price: "from $8,000",
-    priceNote: "Fixed price · 30/40/30 milestones.",
-    desc: "We build what the audit calls for — or what you already know needs building. Custom automations, system integrations, internal tools, dashboards, AI workflows. One project, fixed scope, fixed price. No \"we'll bill the hours.\"",
-    includesLabel: "TYPICAL PROJECTS",
-    includes: [
-      "Workflow automation across existing tools (Zapier/Make/custom)",
-      "System integrations (CRM ↔ accounting ↔ ops platforms)",
-      "Internal dashboards and operational reporting",
-      "Custom internal tools (admin panels, intake forms, etc.)",
-      "AI workflows for repetitive operational tasks",
-      "Process redesign with supporting tooling",
-    ],
-    terms: [
-      { dt: "PRICING", dd: "Fixed price quoted after scoping. No \"discovery surcharges.\"" },
-      { dt: "PAYMENT", dd: "30% on signature. 40% at midpoint deliverable. 30% on final acceptance." },
-      { dt: "TIMING", dd: "Typically 4–12 weeks depending on scope." },
-      { dt: "OWNERSHIP", dd: "You own the code, configuration, and documentation upon final payment." },
-      { dt: "SUPPORT", dd: "30 days post-launch support included." },
-    ],
+    q: "Do you cancel subscriptions without asking?",
+    a: ["No. We hand you a report with every recommendation. Nothing gets cancelled, downgraded, or changed until you give written approval, line by line if you want it that way."],
   },
   {
-    id: "ai",
-    tag: "SPECIALIZATION",
-    title: "AI agent setup",
-    price: "from $8,000",
-    priceNote: "Production-grade. No demoware.",
-    desc: "AI used as a tool, not a sales pitch. We build production AI workflows that handle specific, scoped operational tasks — with monitoring, safety rails, fallback paths, and clear ownership. If AI isn't the right fix, we tell you, and we don't build it.",
-    includesLabel: "WHAT WE BUILD",
-    includes: [
-      "Document and email processing agents",
-      "Customer support triage and routing",
-      "Quality-check and review agents",
-      "Internal-knowledge retrieval systems",
-      "Multi-step workflow agents with human-in-the-loop checkpoints",
-    ],
-    terms: [
-      { dt: "STRUCTURE", dd: "Turnkey project structure: fixed price, 30/40/30 milestones." },
-      { dt: "MONITORING", dd: "Includes basic observability dashboard so you can see what the AI is doing." },
-      { dt: "HONESTY", dd: "If AI isn't the right answer for your problem, we'll tell you in the audit." },
-    ],
+    q: "Why does the Chatbot Check have a monitoring option?",
+    a: ["Bots drift — a policy changes, a prompt gets edited, a new product launches, and suddenly the bot is answering from outdated rules. Monitoring re-tests it every month so you find out before a customer does. It's sold in 3-month blocks with no annual contract; renew or stop after each block."],
   },
   {
-    id: "docs",
-    tag: "FOUNDATIONAL",
-    title: "Documentation",
-    price: "from $5,000",
-    priceNote: "Often bundled with other engagements.",
-    desc: "The work nobody wants to do. We turn the knowledge that lives in your founders' heads into runbooks, SOPs, and decision trees that your team can actually follow. Documentation that survives turnover.",
-    includesLabel: "DELIVERABLES",
-    includes: [
-      "Standard Operating Procedures (SOPs) for key workflows",
-      "Runbooks for recurring operational tasks",
-      "Decision trees and escalation paths",
-      "Onboarding documentation for new hires",
-      "Owned in your platform of choice (Notion, Google Docs, Confluence)",
-    ],
-    terms: [],
+    q: "How is the Workflow Automation price set?",
+    a: ["Every business's processes are different, so this one is a custom quote after we understand your workflow. You'll get an exact number before any work begins."],
   },
   {
-    id: "ongoing",
-    tag: "CONTINUOUS",
-    title: "Ongoing operations",
-    price: "from $5,000/mo",
-    priceNote: "3-month minimum, then month-to-month.",
-    desc: "We run your operations for you. Continuous improvement, automation building and maintenance, monitoring, execution. The team you don't have to hire — and don't get locked into.",
-    includesLabel: "WHAT'S INCLUDED",
-    includes: [
-      "Dedicated operations specialist + backing team",
-      "Continuous process improvement",
-      "Building and maintaining automations as needs evolve",
-      "Monthly strategy calls and progress reports",
-      "Slack/email coverage across timezones",
-      "Quarterly business review with ROI tracking",
-    ],
-    terms: [
-      { dt: "MINIMUM", dd: "3-month initial commitment. After that, month-to-month." },
-      { dt: "NOTICE", dd: "30 days written notice to cancel after the initial 3 months." },
-      { dt: "OWNERSHIP", dd: "You own all work products. If you leave, we hand over everything — code, configs, docs." },
-      { dt: "SCALING", dd: "Retainer can be scaled up or down month-to-month after the initial period." },
-    ],
+    q: "What happens after the 90-day guarantee on automations?",
+    a: ["Nothing changes unless you want it to. If you'd like us to keep maintaining or extending the automation, support is available in $600 three-month blocks, with no annual contract — stop anytime after a block ends."],
   },
-];
-
-const DONT_DO = [
-  "Marketing campaigns, branding, or graphic design",
-  "Bookkeeping or financial advisory",
-  "HR, recruiting, or payroll services",
-  "Legal advice or contract drafting",
-  "Hardware procurement or general IT support",
-  "Replacing your in-house engineering team",
-  "Generic \"AI strategy\" decks without execution",
 ];
 
 export default function Services() {
@@ -155,71 +39,201 @@ export default function Services() {
       <section className="page-header" style={{ borderTop: "none" }}>
         <div className="container">
           <p className="eyebrow fade-up">Services &amp; pricing</p>
-          <h1 className="fade-up d1">Five engagements. <em className="accent-italic">Transparent pricing.</em></h1>
+          <h1 className="fade-up d1">Three problems. <em className="accent-italic">Honest pricing.</em></h1>
           <p className="lede fade-up d2">
-            Every engagement starts with a free first-look. After that, you choose how deep you want to go. Pricing below is honest — final quote may sit anywhere in the listed range depending on scope and complexity.
+            Each package solves one specific way your business loses money. Prices below are our standard starting rates — we quote exact numbers after a free call.
           </p>
         </div>
       </section>
 
-      <section style={{ paddingTop: "6rem" }}>
+      <section style={{ paddingTop: "5rem" }}>
         <div className="container">
-          {SERVICES.map((s) => (
-            <div className="service-block" key={s.id} id={s.id}>
-              <div className="service-grid">
-                <div className="service-meta">
-                  <p className="service-tag">{s.tag}</p>
-                  <h2 className="service-title">{s.title}</h2>
-                  <p className="service-price">{s.price}</p>
-                  <p className="service-price-note">{s.priceNote}</p>
-                </div>
-                <div>
-                  <p className="service-desc">{s.desc}</p>
-                  <p className="service-section-label">{s.includesLabel}</p>
-                  <ul className="service-includes">
-                    {s.includes.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
-                  {s.terms.length > 0 && (
-                    <>
-                      <p className="service-section-label">TERMS</p>
-                      <dl className="terms-grid">
-                        {s.terms.map(({ dt, dd }) => (
-                          <>
-                            <dt key={`dt-${dt}`}>{dt}</dt>
-                            <dd key={`dd-${dt}`}>{dd}</dd>
-                          </>
-                        ))}
-                      </dl>
-                    </>
-                  )}
+
+          {/* SPEND AUDIT */}
+          <div className="service-block" id="spend-audit">
+            <div className="service-grid">
+              <div className="service-meta">
+                <p className="service-tag">Problem 1</p>
+                <h2 className="service-title">Spend Audit</h2>
+                <p className="service-price">$500 onboarding</p>
+                <p className="service-price-note">+ 20% of savings we implement, in the first 12 months</p>
+              </div>
+              <div>
+                <p className="service-desc">
+                  &ldquo;Stop paying for software you don&apos;t use.&rdquo; We go through every software and AI subscription your business pays for — extra seats, duplicate tools, forgotten free trials that became paid plans, the wrong pricing tier, and logins for people who left months ago.
+                </p>
+                <p className="service-section-label">WHAT YOU GET</p>
+                <ul className="service-includes">
+                  <li>A full inventory of your software and AI subscriptions</li>
+                  <li>A report showing exactly where money is being wasted, in dollars</li>
+                  <li>Cancellations and downgrades handled by us, with your written sign-off first</li>
+                  <li>Nothing changed without your approval, item by item</li>
+                </ul>
+                <p className="service-section-label">HOW IT&apos;S PRICED</p>
+                <dl className="terms-grid">
+                  <dt>ONBOARDING</dt>
+                  <dd>$500, due before we start. Covers the audit itself.</dd>
+                  <dt>SUCCESS FEE</dt>
+                  <dd>20% of the savings from changes we actually implement, measured over your first 12 months.</dd>
+                  <dt>IF YOU PASS</dt>
+                  <dd>If you decide not to act on a specific recommendation, that one is billed at 10% of the savings we identified instead of 20%.</dd>
+                  <dt>NO SAVINGS FOUND</dt>
+                  <dd>You pay only the $500 onboarding and keep the full report — no success fee.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          {/* CHATBOT CHECK */}
+          <div className="service-block" id="chatbot-check">
+            <div className="service-grid">
+              <div className="service-meta">
+                <p className="service-tag">Problem 2</p>
+                <h2 className="service-title">AI Chatbot Quality Check</h2>
+                <p className="service-price">$1,500 – $4,000</p>
+                <p className="service-price-note">test only, or test + fix</p>
+              </div>
+              <div>
+                <p className="service-desc">
+                  &ldquo;Make sure your bot isn&apos;t making things up.&rdquo; We run your customer-facing chatbot through dozens of test scenarios — pricing, store policies, returns, deliberately difficult edge cases, and whether it knows when to hand off to a human — checking every answer against your actual rules. This catches costly mistakes before a customer acts on bad information, and confirms your policies are actually being followed.
+                </p>
+                <p className="service-section-label">WHAT YOU GET</p>
+                <ul className="service-includes">
+                  <li>A report with your bot&apos;s worst answers, quoted word for word</li>
+                  <li>A plain-English breakdown of the business risk each one creates</li>
+                  <li>Concrete fixes for each issue found</li>
+                  <li>Optional: we implement the fixes to prompts and settings ourselves</li>
+                </ul>
+                <p className="service-section-label">HOW IT&apos;S PRICED</p>
+                <dl className="terms-grid">
+                  <dt>TEST ONLY</dt>
+                  <dd>$1,500 flat. You get the findings report; your team makes the fixes.</dd>
+                  <dt>TEST + FIX</dt>
+                  <dd>$4,000 flat. We also implement the prompt and setting changes ourselves.</dd>
+                  <dt>MONITORING</dt>
+                  <dd>$900 per 3-month block — we automatically re-test monthly and send a report. No annual contract; renew or stop after each block.</dd>
+                </dl>
+                <div className="bundle-note">
+                  <span>💡</span>
+                  <span><strong>Bundle discount:</strong> add a Spend Audit alongside your Chatbot Check and we&apos;ll discount it on your quote.</span>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* WORKFLOW AUTOMATION */}
+          <div className="service-block" id="workflow-automation">
+            <div className="service-grid">
+              <div className="service-meta">
+                <p className="service-tag">Problem 3</p>
+                <h2 className="service-title">Workflow Automation</h2>
+                <p className="service-price">Custom quote</p>
+              </div>
+              <div>
+                <p className="service-desc">
+                  &ldquo;Get your team&apos;s hours back.&rdquo; We break down a manual process, measure exactly how many hours and dollars it costs you today, and build automations custom to how your business actually works — tested so they don&apos;t quietly break in three months.
+                </p>
+                <p className="service-section-label">WHAT YOU GET</p>
+                <ul className="service-includes">
+                  <li>A clear baseline: hours and dollars the process costs you right now</li>
+                  <li>Custom automation built and tested for your exact workflow</li>
+                  <li>12 months of tracking the result against that baseline — included in the price</li>
+                  <li>A free 90-day guarantee covering any mistakes on our end</li>
+                </ul>
+                <p className="service-section-label">HOW IT&apos;S PRICED</p>
+                <dl className="terms-grid">
+                  <dt>PROJECT FEE</dt>
+                  <dd>Custom quote after we understand the process. You&apos;ll get an exact number before any work begins.</dd>
+                  <dt>GUARANTEE</dt>
+                  <dd>90 days, free, covering anything that&apos;s our mistake.</dd>
+                  <dt>SUPPORT AFTER</dt>
+                  <dd>$600 per 3-month block once the guarantee ends. No annual contract; stop anytime after a block.</dd>
+                </dl>
+                <div className="bundle-note">
+                  <span>💡</span>
+                  <span><strong>Bundle discount:</strong> Spend Audit and Chatbot Check are discounted when added to a Workflow Automation engagement — and bot monitoring drops from $900 to $300 per 3-month block.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* FINOPS AUDIT */}
+          <div className="service-block" id="finops-audit">
+            <div className="service-grid">
+              <div className="service-meta">
+                <p className="service-tag">By request</p>
+                <h2 className="service-title">FinOps Audit</h2>
+                <p className="service-price">Custom quote</p>
+              </div>
+              <div>
+                <p className="service-desc">
+                  For businesses running real cloud infrastructure, not just SaaS subscriptions. We dig into your cloud bill — AWS, Azure, or GCP — the same way we dig into software subscriptions: right-sizing instances, catching unused or orphaned resources, fixing reserved-capacity and commitment mismatches, and cleaning up billing anomalies that build up over time.
+                </p>
+                <p className="service-section-label">WHAT YOU GET</p>
+                <ul className="service-includes">
+                  <li>A full inventory of what you&apos;re running and what&apos;s actually using it</li>
+                  <li>Right-sizing and reserved-capacity recommendations with projected savings</li>
+                  <li>Unused and orphaned resources flagged for removal</li>
+                  <li>A plain-English report — no cloud certification required to read it</li>
+                </ul>
+                <p className="service-section-label">HOW IT&apos;S PRICED</p>
+                <dl className="terms-grid">
+                  <dt>PRICING</dt>
+                  <dd>Custom quote after a short infrastructure review — priced the same way as a Spend Audit: a flat onboarding fee plus a share of what we actually save you.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          {/* CUSTOM SOFTWARE */}
+          <div className="service-block" id="custom-software">
+            <div className="service-grid">
+              <div className="service-meta">
+                <p className="service-tag">By request</p>
+                <h2 className="service-title">Custom Software</h2>
+                <p className="service-price">Custom quote</p>
+              </div>
+              <div>
+                <p className="service-desc">
+                  For when off-the-shelf automation isn&apos;t enough — a dashboard nobody sells, an internal tool that bridges two systems that were never meant to talk to each other, a process that needs real software instead of a workflow trigger. We build it, test it, and hand it over working.
+                </p>
+                <p className="service-section-label">WHAT YOU GET</p>
+                <ul className="service-includes">
+                  <li>A scoped, fixed-price project — no open-ended hourly billing</li>
+                  <li>Software built and tested for your exact use case</li>
+                  <li>Documentation and a walkthrough, not just a login</li>
+                  <li>You own the code once the project is complete</li>
+                </ul>
+                <p className="service-section-label">HOW IT&apos;S PRICED</p>
+                <dl className="terms-grid">
+                  <dt>PROJECT FEE</dt>
+                  <dd>Custom quote after we scope the build. Fixed price, agreed in writing before work starts.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* WHAT WE DON'T DO */}
+      {/* FAQ */}
       <section style={{ background: "var(--surface)" }}>
         <div className="container">
           <div className="section-head">
-            <p className="section-label"><span className="num">!</span>WHAT WE DON&apos;T DO</p>
-            <h2 className="section-title">Focus comes from <em className="accent-italic">saying no.</em></h2>
+            <p className="section-label"><span className="num">?</span>PRICING FAQ</p>
+            <h2 className="section-title">Questions about <em className="accent-italic">how this works.</em></h2>
           </div>
           <div className="feature-grid">
             <div />
-            <div style={{ maxWidth: "60ch" }}>
-              <ul style={{ listStyle: "none", padding: 0 }}>
-                {DONT_DO.map((item) => (
-                  <li key={item} style={{ padding: "1rem 0", borderBottom: "1px solid var(--border)", display: "flex", gap: "1rem" }}>
-                    <span style={{ color: "var(--danger)", flexShrink: 0 }}>✕</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p style={{ marginTop: "2rem", fontSize: "0.95rem", color: "var(--muted)", lineHeight: 1.7 }}>
-                We do operations. Deep. If your problem is outside this list, we&apos;ll tell you and recommend someone who&apos;s actually good at it.
-              </p>
+            <div style={{ maxWidth: "68ch" }}>
+              {FAQS.map(({ q, a }) => (
+                <details className="faq-item" key={q}>
+                  <summary>{q}</summary>
+                  <div className="faq-body">
+                    {a.map((para, i) => <p key={i}>{para}</p>)}
+                  </div>
+                </details>
+              ))}
             </div>
           </div>
         </div>
@@ -228,13 +242,13 @@ export default function Services() {
       {/* CTA */}
       <section className="cta-section">
         <div className="container">
-          <h2 className="section-title" style={{ maxWidth: "22ch", margin: "0 auto 1.5rem" }}>
-            Pricing should match <em className="accent-italic">your scope, not our hours.</em>
+          <h2 className="section-title" style={{ maxWidth: "22ch", margin: "0 auto 1.25rem" }}>
+            Not sure which one <em className="accent-italic">you need?</em>
           </h2>
-          <p style={{ color: "var(--muted)", fontSize: "1.05rem", maxWidth: "48ch", margin: "0 auto 3rem" }}>
-            Start the audit form. You&apos;ll get a rough estimate instantly, refined within 48 hours.
+          <p style={{ color: "var(--muted)", fontSize: "1.05rem", maxWidth: "48ch", margin: "0 auto 2.5rem" }}>
+            Email us or book a 20-minute call and tell us what&apos;s bothering you — we&apos;ll tell you which package fits, or if you don&apos;t need one at all.
           </p>
-          <Link href="/audit" className="btn btn-primary">Start a free audit →</Link>
+          <Link href="/contact" className="btn btn-primary">Get your free check →</Link>
         </div>
       </section>
     </main>

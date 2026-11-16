@@ -1,23 +1,25 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
-  title: "Ycorpit — Operations team for hire",
-  description: "We audit, build, and run the systems behind your business. Global remote, no bureaucracy, fair pricing.",
+  title: "YCorpIT — Find where your business is losing money",
+  description: "IT consulting for small and mid-sized businesses: software spend audits, AI chatbot quality testing, and business process automation.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
       </head>
       <body>

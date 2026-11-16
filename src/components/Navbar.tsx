@@ -6,16 +6,16 @@ import { useState } from "react";
 function LogoMark() {
   return (
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="logo-mark">
-      <rect x="1.5" y="1.5" width="37" height="37" rx="3" fill="none" stroke="currentColor" strokeWidth="1.2" />
-      <text x="20" y="29" fontFamily="Fraunces, Georgia, serif" fontSize="24" fontStyle="italic" fontWeight="500" fill="#d4a93a" textAnchor="middle">Y</text>
+      <rect x="1" y="1" width="38" height="38" rx="10" fill="#0071e3" />
+      <text x="20" y="27" fontFamily="Inter, -apple-system, sans-serif" fontSize="19" fontWeight="800" fill="#ffffff" textAnchor="middle">Y</text>
     </svg>
   );
 }
 
 const NAV_LINKS = [
-  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/why", label: "Why us" },
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className="site-nav">
       <Link href="/" className="logo">
         <LogoMark />
-        Ycorpit
+        YCorpIT
       </Link>
 
       <button
@@ -52,8 +52,8 @@ export default function Navbar() {
             {label}
           </Link>
         ))}
-        <Link href="/audit" className="nav-cta" onClick={() => setOpen(false)}>
-          Start audit →
+        <Link href="/contact" className="nav-cta" onClick={() => setOpen(false)}>
+          Get a free check →
         </Link>
       </div>
     </nav>
