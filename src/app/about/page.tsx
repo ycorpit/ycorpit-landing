@@ -71,7 +71,7 @@ export default function About() {
                 YCorpIT LLC has existed for about two years, and we&apos;ve chosen to grow deliberately rather than scale fast. Every engagement gets real, focused attention from an actual engineer — not stretched thin across a dozen accounts, and not handed off to junior staff after the sales call.
               </p>
               <p style={{ fontSize: "1.05rem", color: "var(--muted)", lineHeight: 1.75 }}>
-                We&apos;re a newer firm, and our case-study library is still growing. What&apos;s not new is the hands-on engineering experience behind every audit — the same kind of waste we&apos;re asking to look for in your business. The free call and sample report cost nothing to find out.
+                What that gets you is hands-on engineering experience applied directly to your audit — the same kind of waste we&apos;re asking to look for in your business. The free call and sample report cost nothing to find out.
               </p>
             </div>
           </div>

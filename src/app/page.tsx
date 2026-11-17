@@ -166,13 +166,13 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <p className="section-label"><span className="num">05</span>RESULTS</p>
-            <h2 className="section-title">Case studies <em className="accent-italic">coming soon.</em></h2>
+            <h2 className="section-title">What an engagement <em className="accent-italic">looks like.</em></h2>
           </div>
           <div className="feature-grid">
             <div />
             <div className="coming-soon-card">
-              <p className="title">We&apos;re a new firm — real case studies are still to come.</p>
-              <p className="sub">In the meantime, here&apos;s a sample walkthrough of what the process looks like: a business overpaying for cloud infrastructure with a customer-facing chatbot giving risky answers. Both got fixed, then a manual back-office process got automated too.</p>
+              <p className="title">A business overpaying for cloud infrastructure, with a customer-facing chatbot giving risky answers.</p>
+              <p className="sub">Both got fixed, then a manual back-office process got automated too. Here&apos;s the full example — scope, pricing, and results.</p>
               <div style={{ marginTop: "1.75rem", display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}>
                 <Link href="/sample" className="btn-text">See the sample report →</Link>
                 <Link href="/contact" className="btn-text">Talk to us →</Link>
