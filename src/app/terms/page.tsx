@@ -38,7 +38,7 @@ export default function Terms() {
             <p>We will not cancel, downgrade, or modify any subscription, prompt, configuration, or system on your behalf without your prior written approval, item by item.</p>
 
             <h2>5. Confidentiality</h2>
-            <p>Before we access anything sensitive, we sign a mutual non-disclosure agreement. We will not use your confidential information for any purpose other than delivering the agreed engagement, and we will not train AI models on your data.</p>
+            <p>Before we access anything, we sign a mutual non-disclosure agreement. We will not use your confidential information for any purpose other than delivering the agreed engagement, and we will not train AI models on your data.</p>
 
             <h2>6. Ownership</h2>
             <p>Reports, automations, and other deliverables we create for you are yours upon completion of the engagement and payment of applicable fees.</p>

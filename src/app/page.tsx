@@ -171,6 +171,7 @@ export default function Home() {
           <div className="feature-grid">
             <div />
             <div className="coming-soon-card">
+              <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: "0.75rem" }}>Illustrative example</p>
               <p className="title">A business overpaying for cloud infrastructure, with a customer-facing chatbot giving risky answers.</p>
               <p className="sub">Both got fixed, then a manual back-office process got automated too. Here&apos;s the full example — scope, pricing, and results.</p>
               <div style={{ marginTop: "1.75rem", display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}>

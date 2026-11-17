@@ -44,7 +44,7 @@ export default function About() {
                 YCorpIT is led by Alex Yenza, with a background spanning QA, software development, infrastructure, and systems architecture — built at large organizations such as Meta and FINRA, among others. That background means software budgets, tool sprawl, and testing overhead were a constant, visible problem long before YCorpIT existed.
               </p>
               <p style={{ fontSize: "1.05rem", color: "var(--muted)", lineHeight: 1.75, marginBottom: "1.5rem", maxWidth: "60ch" }}>
-                For hands-on execution, YCorpIT works with a small, vetted network of engineers under contract — each with their own certifications and specialist experience — brought in project by project as the work requires. Not a solo generalist, and not a sales rep learning the material as they go.
+                For hands-on execution, YCorpIT works with a small, vetted network of engineers under contract — each with their own certifications and specialist experience — brought in project by project as the work requires. Whoever works on your engagement is a specialist, introduced to you directly — not a sales rep relaying your question to someone else.
               </p>
               <p style={{ fontSize: "1.05rem", color: "var(--muted)", lineHeight: 1.75, marginBottom: "1.5rem", maxWidth: "60ch" }}>
                 More recently, that same team has been building AI-assisted tooling — using AI to write and run tests, review work, and catch mistakes automatically. That gave a close-up view of exactly where AI tools quietly get things wrong, and why most small and mid-sized businesses have no easy way to check.
@@ -89,7 +89,7 @@ export default function About() {
             <div />
             <div style={{ maxWidth: "60ch" }}>
               <p style={{ fontSize: "1.05rem", color: "var(--muted)", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-                Every business we&apos;ve looked at closely has some version of the same three leaks: software subscriptions nobody&apos;s tracking, an AI tool that was turned on and never checked, and a manual process that quietly costs hours every week. None of these show up on a balance sheet as one clean line item — they just slowly add up.
+In practice, the same three leaks show up again and again: software subscriptions nobody&apos;s tracking, an AI tool that was turned on and never checked, and a manual process that quietly costs hours every week. None of these show up on a balance sheet as one clean line item — they just slowly add up.
               </p>
               <p style={{ fontSize: "1.05rem", color: "var(--muted)", lineHeight: 1.75 }}>
                 When budgets are tight, finding that waste matters more, not less. That&apos;s the whole premise of YCorpIT: find where it&apos;s leaking, show you the number, and fix it with your sign-off.

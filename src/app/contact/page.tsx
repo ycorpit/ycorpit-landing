@@ -140,6 +140,7 @@ export default function Contact() {
                   <div className="cf-field">
                     <label className="cf-label">What can we help with? <span className="cf-req">*</span></label>
                     <textarea className="cf-textarea" name="message" required placeholder="Briefly describe what's bothering you — a software bill, a chatbot, a slow process..." />
+                    <p className="hint">Please don&apos;t include passwords or account numbers here — we&apos;ll request access properly, under NDA, if we move forward.</p>
                   </div>
                   {error && <p className="cf-error">{error}</p>}
                   <button type="submit" className="cf-submit" disabled={loading}>

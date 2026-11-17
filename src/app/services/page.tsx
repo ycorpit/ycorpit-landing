@@ -74,7 +74,7 @@ export default function Services() {
                   <dt>ONBOARDING</dt>
                   <dd>$500, due before we start. Covers the audit itself.</dd>
                   <dt>SUCCESS FEE</dt>
-                  <dd>20% of the savings from changes we actually implement, measured over your first 12 months.</dd>
+                  <dd>20% of the savings from changes we actually implement, measured over your first 12 months. Example: if we cancel a $100/month subscription you weren&apos;t using, that&apos;s $1,200/year in savings — our fee is $240, billed after the change is live.</dd>
                   <dt>IF YOU PASS</dt>
                   <dd>If you decide not to act on a specific recommendation, that one is billed at 10% of the savings we identified instead of 20%.</dd>
                   <dt>NO SAVINGS FOUND</dt>
@@ -178,8 +178,10 @@ export default function Services() {
                 </ul>
                 <p className="service-section-label">HOW IT&apos;S PRICED</p>
                 <dl className="terms-grid">
-                  <dt>PRICING</dt>
-                  <dd>Custom quote after a short infrastructure review — priced the same way as a Spend Audit: a flat onboarding fee plus a share of what we actually save you.</dd>
+                  <dt>ONBOARDING</dt>
+                  <dd>Custom quote based on infrastructure size and complexity — sized up from the Spend Audit&apos;s $500 flat rate for a larger, more technical review.</dd>
+                  <dt>SUCCESS FEE</dt>
+                  <dd>20% of the savings from changes we actually implement, measured over your first 12 months — same rate and structure as a Spend Audit.</dd>
                 </dl>
               </div>
             </div>

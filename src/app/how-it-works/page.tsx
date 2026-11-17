@@ -21,7 +21,7 @@ const SECURITY = [
 ];
 
 const FAQS = [
-  { q: "How fast can you start?", a: ["Whether you email us or book the free 20-minute call, we usually respond within a day or two. If we move forward, read-only access and NDA paperwork typically take under a week, and work starts right after."] },
+  { q: "How fast can you start?", a: ["Whether you email us or book the free 20-minute call, we respond within 24 hours. If we move forward, read-only access and NDA paperwork typically take under a week, and work starts right after."] },
   { q: "Do you sign NDAs?", a: ["Yes, always, before any sensitive access. We can sign yours or provide a clean mutual NDA — whichever you prefer."] },
   { q: "Will you touch our live systems?", a: ["Only with your explicit, written sign-off, and only for the specific change you approved. Everything else is read-only access for the audit itself."] },
   { q: "Do you work with our existing tools?", a: ["Yes — we start with what you already use. Replacing tools is disruptive and expensive, so we'd rather make your current stack work better. If something genuinely needs replacing, we'll say so and explain why."] },
@@ -64,7 +64,7 @@ export default function HowItWorks() {
                 <div className="step-num">02</div>
                 <div>
                   <h3>Read-only access, under NDA</h3>
-                  <p>Before we look at anything sensitive, we sign a mutual NDA. Then we get read-only access to exactly what the engagement requires — your subscription billing, your chatbot logs, or a walkthrough of the process in question. Nothing more.</p>
+                  <p>Before we look at anything, we sign a mutual NDA. Then we get read-only access to exactly what the engagement requires — your subscription billing, your chatbot logs, or a walkthrough of the process in question. Nothing more.</p>
                 </div>
               </div>
               <div className="step">
